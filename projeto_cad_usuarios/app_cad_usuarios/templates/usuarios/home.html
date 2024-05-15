@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'css/Tela_inicio.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header"></div>
+        <div class="main">
+            <div class="image1"> <img src="{% static 'img/animais.png' %}" alt="Imagem"> </div>
+            <div class="image2"><img src="{% static 'img/caomer.png' %}"></div>
+            <a href="{% url 'about' %}"><button class="button" style="background-color:white; color:black;">Saiba mais</button></a>
+        </div>
+        <div class="footer">
+            <a href="{% url 'entrar' %}">
+            <button class="button" style="background-color: #fff; color: #000;">Entrar</button></a>
+            <a href="{% url 'cadastro' %}">
+            <button class="button"  style="background-color:black; color:white;">Registrar</button></a>
+        </div>
+    </div>
+</body>
+</html>
+
+

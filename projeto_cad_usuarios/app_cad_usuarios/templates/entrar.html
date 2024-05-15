@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'css/entrar.css' %}">
+</head>
+<style>
+
+    .messages  {
+        font-size: 1 sem; /* Aumenta o tamanho da fonte */
+        color: red; /* Muda a cor da fonte para vermelho */
+        background-color: lightblue; /* Adiciona um fundo azul claro */
+        padding: 10px; /* Adiciona um pouco de espaço ao redor do texto */
+        border-radius: 5px; /* Arredonda os cantos do elemento */
+        margin-bottom: 20px; /* Adiciona um pouco de espaço abaixo do elemento */
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="header"></div>
+        <div class="main">
+            
+            {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+
+            <h1>Entrar</h1>
+             <form action="{% url 'entrar' %}" method="post">
+                {% csrf_token %}
+                
+                <label for="username">Nome de usuário:</label><br>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="senha">Senha:</label><br>
+                <input type="password" id="senha" name="senha" required><br><br>
+                
+                <input class="button" type="submit" value="Entrar">
+            </form>
+        </div>
+        <div class="footer">
+            <a href="{% url 'cadastro' %}">
+                <button class="button" style="background-color: #fff; color: #000;">Registrar</button></a>
+                <a href="{% url 'home' %}">
+                <button class="button"  style="background-color:black; color:white;">Voltar</button></a>
+                
+            </button>
+        </div>
+    </div>
+</body>
+</html>
